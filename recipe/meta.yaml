@@ -1,5 +1,5 @@
 {% set name = "bowler" %}
-{% set version = "0.7.0" %}
+{% set version = "0.7.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8bee2f9b14c38b13e0d1f68ae417fa74ba40c45baa23dc2f927a220575332aef
+  sha256: 0571648323bf4ec74a17299a78b4d6126cb3ded38f8a33eacae9cbdd03f94b5c
 
 build:
   noarch: python
