@@ -6,12 +6,12 @@ package:
   version: "{{ version }}"
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: f3e0ba2e6d62d84e9dc34c07fd4ae6453c8de480e14cdd67a5665cfeedbf8cb2
 
 build:
   noarch: python
-  number: 0
+  number: 1
   entry_points:
     - bowler = bowler.main:main
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv "
@@ -19,16 +19,18 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools >=38.6.0
   run:
     - attrs
     - click
     - fissix
-    - python
+    - python >={{ python_min }}
     - sh
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - bowler
     - bowler.tests
